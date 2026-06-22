@@ -1,0 +1,11 @@
+# build artifacts (tools build inside a challenge-repo checkout, not here)
+/target/
+**/*.rs.bk
+
+# generated screen outputs
+*.idx
+ops.bin
+*.log
+
+# OS
+.DS_Store
