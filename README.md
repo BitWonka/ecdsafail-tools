@@ -19,6 +19,15 @@ transposed, bit-sliced screener — builds against an unmodified simulator, runs
 9M-input screen in ~13 min on a 16-core box. See its
 [README](dead-ccx-finder/README.md).
 
+### [`fasteval/`](fasteval/) — a fast, exact replica of `eval_circuit`
+Scores an `ops.bin` exactly like the trusted evaluator (same Fiat–Shamir shots,
+totals and score) but runs the shot batches in parallel on a compact op list: a
+1.24B-op circuit in ~3 min and 33 GB, where the official evaluator needs ~69 GB.
+Matched to the grader's logs to the last digit. It comes with a random-circuit
+differential test (`gensynth` + `validate.sh`), and `FE_SALT` re-runs a circuit on
+fresh shots to estimate its true failure rate. See its
+[README](fasteval/README.md).
+
 ## Using a tool
 
 Each tool is a `.rs` you copy into `<challenge-repo>/src/bin/` and build with
